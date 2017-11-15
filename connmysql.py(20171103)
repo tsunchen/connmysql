@@ -4,7 +4,9 @@
 """
 @author: tsunc & zadmine
 @software: PyCharm Community Edition
-@time: 2017/11/15 10:10
+@time: 2017/11/3 10:10
+
+#update 2017/11/15
 
 """
 
@@ -49,7 +51,7 @@ def connmysql_insert(host, user, passwd, db):
 	cur = conn.cursor()
 
 	sql = "insert into idc_09_sharecab (line, port, description, speed, emailhead) values(%s, %s, %s, %s, %s)"
-	parameters = ('B-NX', 'Fa0/XX', 'Desc', 'Speed 10')
+	#parameters = ('B-NX', 'Fa0/XX', 'Desc', 'Speed 10')
 
 	reCount = cur.execute(sql, parameters)
 	conn.commit()
@@ -62,7 +64,7 @@ def connmysql_insert_sharecab(host, user, passwd, db, parameters):
 	conn = pymysql.connect(host,user,passwd,db)
 	cur = conn.cursor()
 
-	sql = "insert into idc_09_sharecab (line, port, description, speed, emailhead) values(%s, %s, %s, %s, %s)"
+	sql = "insert into idc_09_sharecab (line, scabip, port, description, speed, emailhead) values(%s, %s, %s, %s, %s, %s)"
 	#parameters = ('B-NX', 'Fa0/XX', 'Desc', 'Speed 10')
 
 	reCount = cur.execute(sql, parameters)
@@ -90,7 +92,7 @@ if __name__=='__main__':
     print ("+--line of split--+")
     #connmysql_fetchallDictCursor('50.62.209.86','adminidc','idc_21viacloud','tsun_chen_idc','select * from idc_09_k01')
     print ("+--line of split--+")
-    connmysql_fetchallDictCursor('50.62.209.86','adminidc','idc_21viacloud','tsun_chen_idc','select * from idc_09_sharecab')
+    #connmysql_fetchallDictCursor('50.62.209.86','adminidc','idc_21viacloud','tsun_chen_idc','select * from idc_09_sharecab')
     print ("+--line of split--+")
     #connmysql_insert('50.62.209.86','adminidc','idc_21viacloud','tsun_chen_idc')
     print ("+--line of split--+")
